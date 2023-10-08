@@ -30,22 +30,22 @@ public class HasBrewCondition extends Condition {
         quality = new BrewQuality(qualityString);
 
         recipe = new GenericVariable<>(
-            instruction.next().replace("_", " "),
-            instruction.getPackage(),
-            recipeName -> {
-                BRecipe recipe = null;
-                for (final BRecipe r : BRecipe.getAllRecipes()) {
-                    if (r.hasName(recipeName)) {
-                        recipe = r;
-                        break;
+                instruction.next().replace("_", " "),
+                instruction.getPackage(),
+                recipeName -> {
+                    BRecipe recipe = null;
+                    for (final BRecipe r : BRecipe.getAllRecipes()) {
+                        if (r.hasName(recipeName)) {
+                            recipe = r;
+                            break;
+                        }
                     }
-                }
-                if (recipe == null) {
-                    throw new QuestRuntimeException("There is no brewing recipe with the name " + "!");
-                } else {
-                    return recipe;
-                }
-            });
+                    if (recipe == null) {
+                        throw new QuestRuntimeException("There is no brewing recipe with the name " + "!");
+                    } else {
+                        return recipe;
+                    }
+                });
     }
 
     @Override

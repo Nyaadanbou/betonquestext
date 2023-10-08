@@ -27,15 +27,13 @@ import org.betonquest.betonquest.BetonQuest;
 import org.betonquest.betonquest.api.logger.BetonQuestLoggerFactory;
 
 public class BetonQuestExt extends ExtendedJavaPlugin {
-    private BetonQuestLoggerFactory loggerFactory;
-
     @Override
     public void enable() {
         // Load config
         saveDefaultConfig();
 
         // Init logger
-        loggerFactory = getService(BetonQuestLoggerFactory.class);
+        BetonQuestLoggerFactory loggerFactory = getService(BetonQuestLoggerFactory.class);
 
         // Brewery
         if (isPluginPresent("Brewery")) {
@@ -66,10 +64,5 @@ public class BetonQuestExt extends ExtendedJavaPlugin {
             BetonQuest.getInstance().registerConditions("adventurelevel", ReachLevelCondition.class);
             BetonQuest.getInstance().registerNonStaticEvent("adventurelevel", new ChangeLevelEventFactory(loggerFactory.create(ChangeLevelEvent.class), getServer(), getServer().getScheduler(), this));
         }
-
-        // Reload when itemsadder data load done
-        /*Events.subscribe(ItemsAdderLoadDataEvent.class)
-            .handler(e -> BetonQuest.getInstance().reload())
-            .bindWith(this);*/
     }
 }

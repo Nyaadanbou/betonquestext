@@ -35,30 +35,30 @@ public class TakeBrewEventFactory implements EventFactory {
         }
         BrewQuality quality = new BrewQuality(instruction.next());
         GenericVariable<BRecipe> recipe = new GenericVariable<>(
-            instruction.next().replace("_", " "),
-            instruction.getPackage(),
-            recipeName -> {
-                BRecipe recipe0 = null;
-                for (final BRecipe r : BRecipe.getAllRecipes()) {
-                    if (r.hasName(recipeName)) {
-                        recipe0 = r;
-                        break;
+                instruction.next().replace("_", " "),
+                instruction.getPackage(),
+                recipeName -> {
+                    BRecipe recipe0 = null;
+                    for (final BRecipe r : BRecipe.getAllRecipes()) {
+                        if (r.hasName(recipeName)) {
+                            recipe0 = r;
+                            break;
+                        }
                     }
-                }
-                if (recipe0 == null) {
-                    throw new QuestRuntimeException("There is no brewing recipe with the name " + "!");
-                } else {
-                    return recipe0;
-                }
-            });
+                    if (recipe0 == null) {
+                        throw new QuestRuntimeException("There is no brewing recipe with the name " + "!");
+                    } else {
+                        return recipe0;
+                    }
+                });
 
         return new PrimaryServerThreadEvent(
-            new OnlineProfileRequiredEvent(
-                log, new TakeBrewEvent(count, quality, recipe), instruction.getPackage()
-            ),
-            server,
-            scheduler,
-            plugin
+                new OnlineProfileRequiredEvent(
+                        log, new TakeBrewEvent(count, quality, recipe), instruction.getPackage()
+                ),
+                server,
+                scheduler,
+                plugin
         );
     }
 }

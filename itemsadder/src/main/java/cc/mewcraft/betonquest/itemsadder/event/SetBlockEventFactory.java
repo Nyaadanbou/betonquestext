@@ -32,14 +32,14 @@ public class SetBlockEventFactory implements EventFactory {
         LocationData locationData = instruction.getLocation().getLocationData();
 
         return new PrimaryServerThreadEvent(
-            new OnlineProfileRequiredEvent(
-                log,
-                new SetBlockEvent(namespacedID, locationData),
-                instruction.getPackage()
-            ),
-            server,
-            scheduler,
-            plugin
+                new OnlineProfileRequiredEvent(
+                        log,
+                        new SetBlockEvent(namespacedID, locationData),
+                        instruction.getPackage()
+                ),
+                server,
+                scheduler,
+                plugin
         );
     }
 }

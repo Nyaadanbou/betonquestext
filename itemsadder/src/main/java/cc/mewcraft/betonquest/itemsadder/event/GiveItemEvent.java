@@ -19,10 +19,10 @@ public class GiveItemEvent implements Event {
         ItemStack is = CustomStack.getInstance(namespacedID).getItemStack();
         is.setAmount(amount);
         profile.getOnlineProfile()
-            .orElseThrow(() -> new QuestRuntimeException("Player is offline"))
-            .getPlayer()
-            .getInventory()
-            .addItem(is);
+                .orElseThrow(() -> new QuestRuntimeException("Player is offline"))
+                .getPlayer()
+                .getInventory()
+                .addItem(is);
     }
 
 }

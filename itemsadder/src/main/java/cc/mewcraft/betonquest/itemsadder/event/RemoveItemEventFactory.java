@@ -30,14 +30,14 @@ public class RemoveItemEventFactory implements EventFactory {
         String namespacedID = instruction.next() + ":" + instruction.next();
         ItemsAdderUtil.validateCustomStackSilently(instruction.getPackage(), namespacedID);
         return new PrimaryServerThreadEvent(
-            new OnlineProfileRequiredEvent(
-                log,
-                new RemoveItemEvent(namespacedID, amount),
-                instruction.getPackage()
-            ),
-            server,
-            scheduler,
-            plugin
+                new OnlineProfileRequiredEvent(
+                        log,
+                        new RemoveItemEvent(namespacedID, amount),
+                        instruction.getPackage()
+                ),
+                server,
+                scheduler,
+                plugin
         );
     }
 }

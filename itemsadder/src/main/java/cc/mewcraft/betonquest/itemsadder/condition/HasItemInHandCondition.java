@@ -27,7 +27,7 @@ public class HasItemInHandCondition extends Condition {
     @Override
     protected Boolean execute(final Profile profile) throws QuestRuntimeException {
         ItemStack handItem = profile.getOnlineProfile().orElseThrow(() -> new QuestRuntimeException("Player is offline"))
-            .getPlayer().getInventory().getItemInMainHand();
+                .getPlayer().getInventory().getItemInMainHand();
         CustomStack cs = CustomStack.byItemStack(handItem);
         if (cs != null && cs.getNamespacedID().equalsIgnoreCase(namespacedID)) {
             return handItem.getAmount() >= amount;

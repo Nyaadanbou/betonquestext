@@ -27,7 +27,7 @@ public class HasItemCondition extends Condition {
     @Override
     protected Boolean execute(final Profile profile) throws QuestRuntimeException {
         ItemStack[] inventoryItems = profile.getOnlineProfile().orElseThrow(() -> new QuestRuntimeException("Player is offline"))
-            .getPlayer().getInventory().getContents();
+                .getPlayer().getInventory().getContents();
         int has = 0;
         for (ItemStack it : inventoryItems) {
             CustomStack cs = CustomStack.byItemStack(it);

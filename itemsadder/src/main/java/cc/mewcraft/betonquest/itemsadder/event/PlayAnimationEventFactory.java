@@ -27,12 +27,12 @@ public class PlayAnimationEventFactory implements EventFactory {
     @Override public Event parseEvent(final Instruction instruction) throws InstructionParseException {
         String animation = instruction.next();
         return new PrimaryServerThreadEvent(
-            new OnlineProfileRequiredEvent(
-                log, new PlayAnimationEvent(animation), instruction.getPackage()
-            ),
-            server,
-            scheduler,
-            plugin
+                new OnlineProfileRequiredEvent(
+                        log, new PlayAnimationEvent(animation), instruction.getPackage()
+                ),
+                server,
+                scheduler,
+                plugin
         );
     }
 }

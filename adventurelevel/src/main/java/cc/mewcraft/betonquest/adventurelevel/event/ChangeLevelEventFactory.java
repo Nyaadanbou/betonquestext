@@ -31,8 +31,8 @@ public class ChangeLevelEventFactory implements EventFactory {
         ChangeLevelEvent.Mode mode = instruction.getEnum(ChangeLevelEvent.Mode.class);
         Boolean level = instruction.hasArgument("level");
         return new PrimaryServerThreadEvent(
-            new OnlineProfileRequiredEvent(log, new ChangeLevelEvent(category, amount, mode, level), instruction.getPackage()),
-            server, scheduler, plugin
+                new OnlineProfileRequiredEvent(log, new ChangeLevelEvent(category, amount, mode, level), instruction.getPackage()),
+                server, scheduler, plugin
         );
     }
 }

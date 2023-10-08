@@ -14,9 +14,9 @@ public class PlayAnimationEvent implements Event {
 
     @Override public void execute(Profile profile) throws QuestRuntimeException {
         ItemsAdder.playTotemAnimation(
-            profile.getOnlineProfile()
-                .orElseThrow(() -> new QuestRuntimeException("Player is offline"))
-                .getPlayer(),
-            animation);
+                profile.getOnlineProfile()
+                        .orElseThrow(() -> new QuestRuntimeException("Player is offline"))
+                        .getPlayer(),
+                animation);
     }
 }

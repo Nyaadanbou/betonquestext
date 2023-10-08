@@ -1,8 +1,8 @@
 package cc.mewcraft.betonquest.adventurelevel.condition;
 
-import cc.mewcraft.adventurelevel.AdventureLevelProvider;
 import cc.mewcraft.adventurelevel.data.PlayerData;
 import cc.mewcraft.adventurelevel.level.category.LevelCategory;
+import cc.mewcraft.adventurelevel.plugin.AdventureLevelProvider;
 import com.ezylang.evalex.EvaluationException;
 import com.ezylang.evalex.Expression;
 import com.ezylang.evalex.parser.ParseException;

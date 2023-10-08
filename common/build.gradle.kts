@@ -1,13 +1,11 @@
 dependencies {
-    // server api
+    // server
     compileOnlyApi(libs.server.paper)
 
-    // libs that need to be shaded
-    compileOnlyApi(libs.evalex)
-
-    // libs that present as other plugins
-    compileOnlyApi(project(":mewcore"))
+    // helper
     compileOnlyApi(libs.helper)
+
+    // standalone plugins
     compileOnlyApi(libs.betonquest) {
         exclude("io.papermc")
         exclude("com.comphenix.packetwrapper")

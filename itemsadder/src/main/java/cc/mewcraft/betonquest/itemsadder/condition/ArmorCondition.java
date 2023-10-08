@@ -21,7 +21,7 @@ public class ArmorCondition extends Condition {
     @Override
     protected Boolean execute(Profile profile) throws QuestRuntimeException {
         ItemStack[] inventoryItems = profile.getOnlineProfile().orElseThrow(() -> new QuestRuntimeException("Player is offline"))
-            .getPlayer().getInventory().getArmorContents();
+                .getPlayer().getInventory().getArmorContents();
         for (ItemStack is : inventoryItems) {
             CustomStack cs = CustomStack.byItemStack(is);
             if (cs != null && cs.getNamespacedID().equalsIgnoreCase(namespacedID)) {

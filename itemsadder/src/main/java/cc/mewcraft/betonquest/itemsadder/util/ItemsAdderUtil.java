@@ -4,6 +4,7 @@ import dev.lone.itemsadder.api.CustomBlock;
 import dev.lone.itemsadder.api.CustomStack;
 import org.betonquest.betonquest.api.config.quest.QuestPackage;
 import org.betonquest.betonquest.exceptions.InstructionParseException;
+
 import org.jetbrains.annotations.NotNull;
 
 public final class ItemsAdderUtil {
